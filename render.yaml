@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: odoo
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: HOST
+        value: odoo-db:5432
+      - key: USER
+        value: odoo
+      - key: PASSWORD
+        value: odoo
+    disk:
+      name: odoo-data
+      mountPath: /var/lib/odoo
+      sizeGB: 1
+
+  - type: private_service
+    name: odoo-db
+    env: docker
+    dockerfilePath: ./db.Dockerfile
+    envVars:
+      - key: POSTGRES_DB
+        value: odoo
+      - key: POSTGRES_USER
+        value: odoo
+      - key: POSTGRES_PASSWORD
+        value: odoo
+    disk:
+      name: db-data
+      mountPath: /var/lib/postgresql/data
+      sizeGB: 1

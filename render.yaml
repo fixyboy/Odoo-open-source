@@ -24,5 +24,6 @@ services:
         value: odoo
       - key: POSTGRES_PASSWORD
         value: odoo
+    internal: true
     autoDeploy: false
     routes: []

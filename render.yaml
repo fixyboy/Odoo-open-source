@@ -11,8 +11,6 @@ services:
         value: odoo
       - key: PASSWORD
         value: odoo
-    ports:
-      - 8069
 
   - type: web
     name: odoo-db

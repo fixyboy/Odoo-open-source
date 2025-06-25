@@ -11,10 +11,6 @@ services:
         value: odoo
       - key: PASSWORD
         value: odoo
-    disk:
-      name: odoo-data
-      mountPath: /var/lib/odoo
-      sizeGB: 1
 
   - type: web
     name: odoo-db
@@ -28,8 +24,4 @@ services:
         value: odoo
       - key: POSTGRES_PASSWORD
         value: odoo
-    disk:
-      name: db-data
-      mountPath: /var/lib/postgresql/data
-      sizeGB: 1
     autoDeploy: false
